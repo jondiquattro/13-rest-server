@@ -2,28 +2,40 @@
 
 const uuid = require('uuid/v4');
 
+const ProductsModel = require('./products-schema');
 const schema = {
 };
 
 class Products {
 
   constructor() {
-    this.database = [];
-  }
-
-  get(id) {
-  }
   
-  post(entry) {
   }
 
-  put(id, entry) {
+  get(_id) {
+    let queryObject = _id ? {_id} : {};
+    return ProductsModel.find(queryObject);
+    }
+  
+  post(record) {
+    let newRecord = new ProductsModel(record);
+    return newRecord.save();
+
+
   }
 
-  delete(id) {
+  put(_id, record) {
+    console.log(record);
+    console.log(_id)
+    return ProductsModel.findOneAndReplace({_id}, {record})
+ 
   }
 
-  sanitize(entry) {
+  delete(_id) {
+    ProductsModel.deleteOne({_id});
+  }
+
+  sanitize(record) {
   }
 
 }
