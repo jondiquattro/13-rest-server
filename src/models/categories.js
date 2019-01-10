@@ -6,6 +6,7 @@ class Categories {
   }
 
   get(_id) {
+    console.log(_id)
   }
   
   post(record) {

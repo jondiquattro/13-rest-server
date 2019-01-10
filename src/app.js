@@ -8,8 +8,8 @@ const morgan = require('morgan');
 // Esoteric Resources
 const errorHandler = require( './middleware/error.js');
 const notFound = require( './middleware/404.js' );
-const teamRouter = require( './api/teams.js' );
-const playersRouter = require( './api/players.js' );
+const categorieRouter = require( './api/categories.js' );
+const productRouter = require( './api/products.js' );
 
 // Prepare the express app
 const app = express();
@@ -22,12 +22,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 // Routes
-app.use(teamRouter);
-app.use(playersRouter);
+app.use(categorieRouter);
+app.use(productRouter);
 
 // Catchalls
-app.use(notFound);
 app.use(errorHandler);
+app.use(notFound);
+
 
 let isRunning = false;
 
