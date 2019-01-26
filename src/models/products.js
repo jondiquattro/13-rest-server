@@ -25,18 +25,19 @@ class Products {
   }
 
   put(_id, record) {
-    console.log(record);
-    console.log(_id)
-    return ProductsModel.findOneAndReplace({_id}, {record})
+    let queryObject = _id ? {_id} : {};
+    return ProductsModel.findOneAndReplace(queryObject, {record})
+
  
   }
 
   delete(_id) {
-    ProductsModel.deleteOne({_id});
+    console.log(_id)
+    let queryObject = _id ? {_id} : {};
+    return ProductsModel.findOneAndDelete(queryObject);
   }
 
-  sanitize(record) {
-  }
+  
 
 }
 
