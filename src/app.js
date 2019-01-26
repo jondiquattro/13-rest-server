@@ -27,7 +27,7 @@ app.use(productRouter);
 
 // Catchalls
 app.use(errorHandler);
-app.use(notFound);
+app.use('*',notFound);
 
 
 let isRunning = false;

@@ -11,6 +11,7 @@ You have been provided a partially working API server. The assignment for today 
 * The provided API server is setup to work, but the data models are incomplete
 * Implement 2 data models, in different manners, using only TDD
 * Do not use the server routes to test the models. Once you're finished the TDD, the server should "just work", so long as your models obey the contract (noted in the routes)
+
   * **Categories**
     * Create this as an in-memory model
     * The model class should hold and manage the data

@@ -17,7 +17,6 @@ router.delete('/api/v1/products/:id', deleteProducts);
 
 // FUNCTIONS
 function getProducts(request,response,next) {
-  console.log('called');
 
   // expects an array of objects back
   products.get()
@@ -41,7 +40,7 @@ function getProduct(request,response,next) {
 
 function postProducts(request,response,next) {
   // expects the record that was just added to the database
-  // console.log('called');
+  console.log('called from post');
   products.post(request.body)
     .then( result => response.status(200).json(result) )
     .catch( next );
@@ -50,6 +49,10 @@ function postProducts(request,response,next) {
 
 function putProducts(request,response,next) {
   // expects the record that was just updated in the database
+  console.log('called from put');
+  console.log(request.body);
+
+
   products.put(request.params.id, request.body)
     .then( result => response.status(200).json(result) )
     .catch( next );
